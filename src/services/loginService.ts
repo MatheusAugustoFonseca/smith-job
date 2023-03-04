@@ -1,0 +1,24 @@
+import { ILogin } from '../interfaces';
+import connection from '../models/connection';
+import LoginModel from '../models/loginModel';
+import generateToken from '../utils/jwt';
+
+export default class LoginService {
+  public loginModel: LoginModel;
+
+  constructor() {
+    this.loginModel = new LoginModel(connection);
+  }
+
+  public async login(user: ILogin) {
+    // validate?
+    const { username, password } = user;
+    const result = await this.loginModel.login(username, password);
+    if (!result) {
+      return { status: 401, type: 'UNAUTHORIZED', message: 'Username or password invalid' };
+    }
+
+    const token = generateToken(user);
+    return { type: null, message: token };
+  }
+}
