@@ -25,5 +25,5 @@ export interface ILogin {
 
 export interface IStatus { 
   type: number | null
-  message: string | IProducts
+  message: string | IProducts | IUser
 }

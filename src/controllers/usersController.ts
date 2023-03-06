@@ -8,9 +8,17 @@ export default class UsersController {
     this.userService = new UserService();
   }
 
+  // public register = async (req: Request, res: Response) => {
+  //   const newUser = req.body;
+  //   const token = await this.userService.register(newUser);
+  //   return res.status(201).json({ token });
+  // };
   public register = async (req: Request, res: Response) => {
     const newUser = req.body;
-    const token = await this.userService.register(newUser);
-    return res.status(201).json({ token });
+    const { type, message } = await this.userService.register(newUser);
+    if (type) {
+      return res.status(type).json({ message });
+    }
+    return res.status(201).json(message);
   };
 }
