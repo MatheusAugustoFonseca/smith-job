@@ -1,6 +1,7 @@
 import connection from '../models/connection';
 import ProductsModel from '../models/productsModel';
-import { IProducts } from '../interfaces';
+import { IProducts, IStatus } from '../interfaces';
+import productValidation from '../validationsWithJoi/productValidation';
 
 export default class ProductsService {
   public productsModel: ProductsModel;
@@ -9,9 +10,14 @@ export default class ProductsService {
     this.productsModel = new ProductsModel(connection);
   }
 
-  public async createProduct(product: IProducts): Promise<IProducts> {
+  // public async createProduct(product: IProducts): Promise<IProducts> {
+  public async createProduct(product: IProducts): Promise< IStatus > {  
+    const { type, message } = productValidation(product);
+    if (type) {
+      return { type: 422, message };
+    }
     const result = await this.productsModel.createProduct(product);
-    return result;
+    return { type: null, message: result };
   }
 
   public async getAll() {

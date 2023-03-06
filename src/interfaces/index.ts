@@ -22,3 +22,8 @@ export interface ILogin {
   username: string,
   password: string,
 }
+
+export interface IStatus { 
+  type: number | null
+  message: string | IProducts
+}
