@@ -10,7 +10,6 @@ export default class ProductsService {
     this.productsModel = new ProductsModel(connection);
   }
 
-  // public async createProduct(product: IProducts): Promise<IProducts> {
   public async createProduct(product: IProducts): Promise< IStatus > {  
     const { type, message } = productValidation(product);
     if (type) {

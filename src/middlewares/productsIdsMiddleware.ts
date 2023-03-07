@@ -5,9 +5,7 @@ const productsIdsMiddleware = (req: Request, res: Response, next: NextFunction) 
   if (!productsIds) {
     return res.status(400).json({ message: '"productsIds" is required' });
   } 
-  // if (productsIds === 0) {
-  //   return res.status(400).json({ message: '"productsIds" is required' });
-  // }
+
   return next();
 };
 

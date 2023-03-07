@@ -1,6 +1,4 @@
-// import { IUser } from '../interfaces';
 import schemaProductsId from './schemaProductsId';
-// import schemaUser from './schemaUser';
 
 const productsIdsValidation = (productsIds: number[]) => {
   const { error } = schemaProductsId.validate(productsIds);

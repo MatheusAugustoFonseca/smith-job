@@ -1,6 +1,5 @@
 import { Pool, RowDataPacket } from 'mysql2/promise';
 import { IUser } from '../interfaces';
-// import { ILogin, IUser } from '../interfaces';
 
 export default class LoginModel {
   public connection: Pool;
@@ -15,7 +14,6 @@ export default class LoginModel {
         WHERE username = ? AND password = ?`,
       [username, password],
     );
-    // const [user] = result;
     return result as IUser;
   }
 }

@@ -13,4 +13,3 @@ app.use('/orders', ordersRouter);
 app.use('/login', loginRouter);
 
 export default app;
-// iniciando projeto

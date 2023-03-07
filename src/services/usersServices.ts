@@ -11,11 +11,6 @@ export default class UserService {
     this.usersModel = new UserModel(connection);
   }
 
-  // public async register(newUser: IUser): Promise<string> {
-  //   await this.usersModel.register(newUser);
-  //   const token = generateToken(newUser);
-  //   return token;
-  // }
   public async register(newUser: IUser): Promise<IStatus> {
     const { type, message } = userValidation(newUser);
     if (type) {

@@ -2,7 +2,6 @@ import { Pool, ResultSetHeader } from 'mysql2/promise';
 import { IUser } from '../interfaces';
 
 export default class UserModel {
-  // levar todos os metodos da user (para acessar io banco)
   public connection: Pool;
 
   constructor(connection: Pool) {

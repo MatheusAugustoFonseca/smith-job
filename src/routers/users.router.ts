@@ -6,7 +6,6 @@ const router = Router();
 
 const usersController = new UsersController();
 
-// router.post('/', (req, res) => usersController.register(req, res));
 router.post('/', userMiddleware, (req, res) => usersController.register(req, res));
 
 export default router;

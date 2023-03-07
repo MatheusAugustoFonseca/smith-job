@@ -27,6 +27,5 @@ export default class OrdersService {
     const orderId = await this.ordersModel.createOrder(userId);
     await this.productsModel.update(productsIds, orderId);
     return { type: null, message: { userId, productsIds } };
-    // return { message: orderId };
   };
 }
