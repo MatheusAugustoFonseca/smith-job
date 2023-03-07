@@ -30,4 +30,10 @@ export default class ProductsModel {
 
     return rows as IProducts[];
   }
+
+  public async update(productsIds: number[], orderId: number) {
+    const query = 'UPDATE Trybesmith.products SET order_id = ? WHERE id = ?';
+    const promises = productsIds.map((id) => this.connection.execute(query, [orderId, id]));
+    Promise.all(promises);
+  }
 }

@@ -15,4 +15,6 @@ const generateToken = (user: IUser): string => {
   return token;
 };
 
-export default generateToken;
+const authToken = (token: string) => jwt.verify(token, secret);
+
+export { generateToken, authToken };

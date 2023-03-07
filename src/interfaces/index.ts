@@ -9,7 +9,7 @@ export interface IUser {
   username: string,
   vocation?: string,
   level?: number,
-  password: string,
+  password?: string,
 }
 
 export interface IOrders {
@@ -24,6 +24,7 @@ export interface ILogin {
 }
 
 export interface IStatus { 
-  type: number | null
+  type?: number | null | string
   message: string | IProducts | IUser
+  status?: number | undefined | null
 }

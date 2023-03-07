@@ -16,10 +16,10 @@ export default class UsersController {
   public register = async (req: Request, res: Response) => {
     const newUser = req.body;
     // const { type, message } = await this.userService.register(newUser);
-    const { type, message } = await this.userService.register(newUser);
+    const { status, message } = await this.userService.register(newUser);
 
-    if (type) {
-      return res.status(type).json({ message });
+    if (status) {
+      return res.status(status).json({ message });
     }
     return res.status(201).json({ token: message });
   };

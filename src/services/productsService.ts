@@ -14,10 +14,10 @@ export default class ProductsService {
   public async createProduct(product: IProducts): Promise< IStatus > {  
     const { type, message } = productValidation(product);
     if (type) {
-      return { type: 422, message };
+      return { status: 422, message };
     }
     const result = await this.productsModel.createProduct(product);
-    return { type: null, message: result };
+    return { status: null, message: result };
   }
 
   public async getAll() {
